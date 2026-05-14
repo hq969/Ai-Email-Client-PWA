@@ -202,27 +202,39 @@ Powered by xAI Grok for real-time email intelligence.
 # 🏗️ Project Structure
 
 ```txt
-ai-email-client-pwa/
-│
-├── CLAUDE.md
-├── README.md
-├── package.json
-├── vite.config.ts
-│
-├── src/
-│   ├── agents/
-│   ├── components/
-│   ├── services/
-│   ├── stores/
-│   ├── hooks/
-│   ├── types/
-│   ├── utils/
-│   └── App.tsx
-│
-├── public/
-├── tests/
-├── skills/
-└── infra/
+email-client-pwa/
+├── 📋 CLAUDE.md
+├── 📦 package.json
+├── ⚙️  vite.config.js
+├── 🏠 index.html
+├── 📄 tailwind.config.js
+├── 📄 postcss.config.js
+├── 📄 tsconfig.json
+├── 📄 .env.example
+├── 📁 public/
+│   ├── pwa-192x192.png
+│   ├── pwa-512x512.png
+│   ├── favicon.ico
+│   └── manifest.json
+├── 📁 src/
+│   ├── 🔤 types/
+│   │   └── email.ts
+│   ├── 🏪 stores/
+│   │   └── emailStore.ts
+│   ├── 🔌 services/
+│   │   └── EmailService.ts
+│   ├── 🎨 components/
+│   │   ├── InboxView.tsx
+│   │   ├── EmailDetail.tsx
+│   │   ├── AccountSetup.tsx
+│   │   └── ComposeEmail.tsx
+│   ├── 🛠️  utils/
+│   │   └── mockData.ts
+│   ├── 🎨 index.css
+│   └── 🚀 App.tsx
+├── 🧪 tests/
+│   └── EmailService.test.ts
+└── 📖 README.md
 ```
 
 ---
