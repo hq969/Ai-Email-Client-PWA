@@ -1,27 +1,30 @@
-import { useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Toaster } from 'react-hot-toast'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { InboxView } from './components/InboxView'
 import { EmailDetail } from './components/EmailDetail'
 import { AccountSetup } from './components/AccountSetup'
+import { ComposeEmail } from './components/ComposeEmail'
+import './index.css'
 
-function App() {
-  useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js')
-    }
-  }, [])
+function AppContent() {
+  const location = useLocation()
 
   return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<InboxView />} />
+        <Route path="/email/:id" element={<EmailDetail />} />
+        <Route path="/compose" element={<ComposeEmail />} />
+        <Route path="/setup" element={<AccountSetup />} />
+        <Route path="*" element={<InboxView />} />
+      </Routes>
+    </div>
+  )
+}
+
+function App() {
+  return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gray-50">
-        <Toaster position="top-right" />
-        <Routes>
-          <Route path="/" element={<InboxView />} />
-          <Route path="/email/:id" element={<EmailDetail />} />
-          <Route path="/setup" element={<AccountSetup />} />
-        </Routes>
-      </div>
+      <AppContent />
     </BrowserRouter>
   )
 }
