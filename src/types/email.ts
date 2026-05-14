@@ -12,6 +12,7 @@ export interface Email {
   aiReplyDraft?: string
   unread: boolean
   attachments?: Attachment[]
+  threadId?: string
 }
 
 export interface Attachment {
